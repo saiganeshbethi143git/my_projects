@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: barbershop-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: barbershop
+  template:
+    metadata:
+      labels:
+        app: barbershop
+    spec:
+      containers:
+      - name: barbershop
+        image: barbershopacr.azurecr.io/dotnet-barber:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: barbershop-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: barbershop
+  ports:
+  - port: 80
+    targetPort: 8080

@@ -1,0 +1,7 @@
+﻿@page
+@model IndexModel
+@{
+    var html = System.IO.File.ReadAllText("wwwroot/template.html");
+    html = html.Replace("{{SUCCESS}}", TempData["Success"]?.ToString() ?? "");
+}
+@Html.Raw(html)
