@@ -1,0 +1,60 @@
+@page
+@model EmployeePortal.Pages_Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+     <a asp-page="Create" class="btn btn-success">Add Employee</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm text-dark">Edit</a>
+                <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Details</a>
+                <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm text-white">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

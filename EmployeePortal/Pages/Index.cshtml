@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center mt-5">
+    <h1 class="display-4" style="color: #4da6ff; font-weight: bold;">
+        Welcome to Employee Portal
+    </h1>
+
+    <p class="lead mt-3" style="font-size: 1.2rem;">
+        A centralized platform to add, modify, manage, and delete employees' data efficiently.
+    </p>
+
+    <a asp-page="/Employees/Index" class="btn btn-success btn-lg mt-4">
+        Go to Employee Management
+    </a>
+</div>
